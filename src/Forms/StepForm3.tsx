@@ -3,13 +3,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {step3Form, type FormDataOfStep3} from '../lib/zodSchemaForStep3';
 import { useSelectedPlan } from "../store/useTogglePrice";
+import { useSummary } from "../store/useSummary";
 const StepForm3= () => {
 
    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
    const {isSelected} = useSelectedPlan();
+   const {AddOns} = useSummary()
 
     const submitData = (data:FormDataOfStep3) => {
-      console.log(data)
+      AddOns(data)
     }
    
     const online = 'Online service'
