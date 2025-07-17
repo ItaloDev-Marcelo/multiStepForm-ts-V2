@@ -1,7 +1,12 @@
 import {create} from 'zustand'
+
+type AddOns = {
+    text: string,
+    num: number
+}
 interface usePlanState {
-     addOnsData: string[],
-    AddOns: (Add: string[]) => void
+     addOnsData: AddOns[],
+    AddOns: (Add: AddOns[]) => void
 }
 
 export const useSummary = create<usePlanState>((set) => ({

@@ -1,7 +1,6 @@
 import type { FieldErrors, UseFormRegister } from "react-hook-form"
 import type { FormDataOfStep1 } from "../../lib/zodSchemaForStep1"
 
-
 interface InputShape {
   type: string,
   label: string,
