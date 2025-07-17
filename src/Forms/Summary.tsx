@@ -1,12 +1,26 @@
 
 // import { useState, useEffect } from 'react'
 import { useSelectSummary } from '../store/useSelectSumarry'
-import { useSummary } from '../store/useSummary'
+import { useAddOnsSummary } from '../store/useAddOnsSummary'
 
 const Summary = () => {
 
-  const {addOnsData} = useSummary()
+  const {addOnsData} = useAddOnsSummary()
   const {selected} = useSelectSummary()
+
+  const mixed = [...addOnsData,...selected]
+
+  const Remo = mixed.map((item) => {
+     const dt = item.price
+     return dt
+  })
+
+
+  const result = Remo.reduce((acc,num) => {
+    return acc + num
+  },0)
+
+  console.log(result)
 
 
   return (
@@ -25,12 +39,13 @@ const Summary = () => {
         {
          addOnsData.length > 0 &&  addOnsData.map((item) => (
              <div key={Math.random()} className='flex justify-between p-2'>
-                <p>{item.text}</p>
-                <p>${item.num}</p>
+                <p>{item.name}</p>
+                <p>${item.price}</p>
              </div>
           ))
         }
 
+       
         
     </div>
   )

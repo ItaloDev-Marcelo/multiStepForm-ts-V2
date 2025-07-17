@@ -4,23 +4,23 @@ import { useForm } from "react-hook-form";
 import {step3Form, type FormDataOfStep3} from '../lib/zodSchemaForStep3';
 import { useSelectedPlan } from "../store/useTogglePrice";
 import { useEffect, useState } from "react";
-import { useSummary } from "../store/useSummary";
+import { useAddOnsSummary } from "../store/useAddOnsSummary";
 const StepForm3= () => {
 
    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
    const {isSelected} = useSelectedPlan();
-   const {AddOns} = useSummary()
+   const {AddOns} = useAddOnsSummary();
     const [copy, setCopy] = useState<string[]>([]);
     const submitData = (data:FormDataOfStep3) => setCopy(data.addOns)
 
 
   useEffect(() => {
       const FormatedArr = copy.map(item => {
-      const [name, num] = item.split(' ');
-      const text = name.replace('-', ' ')
+      const [n, price] = item.split(' ');
+      const name = n.replace('-', ' ')
       return {
-        text,
-        num: Number(num)
+        name,
+        price: Number(price)
       }
     })
     

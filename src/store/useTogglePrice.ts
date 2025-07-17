@@ -1,11 +1,7 @@
-import {create} from 'zustand'
+import {create} from 'zustand';
+import {type ToggleState} from './store-types/useToggleState';
 
-interface usePlanState {
-     isSelected: boolean,
-     togglePlan: () => void
-}
-
-export const useSelectedPlan = create<usePlanState>((set) => ({
+export const useSelectedPlan = create<ToggleState>((set) => ({
     isSelected: true,
     togglePlan: () => set((state) => ({isSelected: !state.isSelected}))
 }));

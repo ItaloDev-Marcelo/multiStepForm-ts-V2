@@ -1,17 +1,8 @@
 
 import {create} from 'zustand';
+import {type selectedFormate} from './store-types/useSelectState'
 
-type SelectdFormate = {
-    name: string,
-    price: number
-}
-
-interface useFormate {
-     selected: SelectdFormate[],
-     setSelected: (add:SelectdFormate[]) => void
-}
-
-export const useSelectSummary = create<useFormate>((set) => ({
+export const useSelectSummary = create<selectedFormate>((set) => ({
     selected: [],
     setSelected: (add) => set({selected: add}) 
 }))
