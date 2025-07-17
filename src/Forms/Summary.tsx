@@ -2,12 +2,13 @@
 // import { useState, useEffect } from 'react'
 import { useSelectSummary } from '../store/useSelectSumarry'
 import { useAddOnsSummary } from '../store/useAddOnsSummary'
+import { useSelectedPlan } from '../store/useTogglePrice'
 
 const Summary = () => {
 
   const {addOnsData} = useAddOnsSummary()
   const {selected} = useSelectSummary()
-
+ const  {isSelected} = useSelectedPlan()
   const mixed = [...addOnsData,...selected]
 
   const Remo = mixed.map((item) => {
@@ -20,8 +21,11 @@ const Summary = () => {
     return acc + num
   },0)
 
+
   console.log(result)
 
+  const priceText = isSelected ?  '/mo' : '/yr';
+  const plan = isSelected ?  'Monthly' : 'Yearly';
 
   return (
     <div>
@@ -30,8 +34,8 @@ const Summary = () => {
         {
           selected.map((item) => (
              <div  key={Math.random()}>
-                <p>{item.name} (monthly)  <br/> <a href='#'>Change</a> </p>
-                <p>${item.price}/mo </p>
+                <p>{item.name} ({plan})  <br/> <a href='#'>Change</a> </p>
+                <p>${item.price} {priceText} </p>
              </div>
           ))
         }
@@ -40,12 +44,16 @@ const Summary = () => {
          addOnsData.length > 0 &&  addOnsData.map((item) => (
              <div key={Math.random()} className='flex justify-between p-2'>
                 <p>{item.name}</p>
-                <p>${item.price}</p>
+                <p>+${item.price} {priceText}</p>
              </div>
           ))
         }
 
        
+       <div>
+         <p>Total (per {isSelected ? 'month' : 'year'} ) </p>
+       <p>+${result}{priceText}</p>
+       </div>
         
     </div>
   )
