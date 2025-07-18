@@ -1,6 +1,6 @@
 
 import {create} from 'zustand';
-import {type selectedFormate} from './store-types/useSelectState'
+import {type selectedFormate} from '../types/store-types/useSelectState'
 
 export const useSelectSummary = create<selectedFormate>((set) => ({
     selected: [],

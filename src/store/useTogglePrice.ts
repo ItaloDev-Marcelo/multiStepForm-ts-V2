@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {type ToggleState} from './store-types/useToggleState';
+import {type ToggleState} from '../types/store-types/useToggleState';
 
 export const useSelectedPlan = create<ToggleState>((set) => ({
     isSelected: true,
