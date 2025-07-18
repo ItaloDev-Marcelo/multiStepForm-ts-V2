@@ -16,18 +16,19 @@ interface RadioProps {
 
 const InputRadio:FC<RadioProps> = ({radioImage,radioName,radioId,radioValue,title,subTitle, register, changes}) => {
   
-  const Result = !changes ? (<span>2 months free</span>) : null;
+  const Result = !changes ? '/yr' : '/mo' ;
+  const planApply = !changes ? (<span className='text-Blue-950 font-semibold'>2 months free</span>) : null ;
 
   return (
-    <div >
-       <label>
-          <figure>
+    <div className="my-5 outline-1 outline-Grey-500 p-2 rounded-[5px]">
+       <label className='flex flex-row'>
+          <figure className="px-2 mr-3">
               <img src={radioImage} alt='' />
           </figure>
           <div>
-              <input type='radio'  id={radioId} value={radioValue} {...register(radioName)} />
-              <p> <strong>{title}</strong> <span>{subTitle}</span> <br /> {Result} </p>
-              
+              <input type='radio' className="hidden"  id={radioId} value={radioValue} {...register(radioName)}  />
+              <p> <strong className='text-Blue-950 font-bold'>{title}</strong> <br /> 
+               <span className='text-Grey-500 '>{subTitle}{Result}</span><br /> {planApply} </p>
           </div>
        </label>
     </div>

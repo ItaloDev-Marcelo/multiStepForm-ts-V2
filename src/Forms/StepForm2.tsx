@@ -49,7 +49,13 @@ const StepForm2 = () => {
 
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+   <div className='card  bg-base-100 w-96 rounded-[15px] shadow-sm'>
+     <div className="card-body">
+      <div className='flex flex-col'>
+       <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Select your plan</h1>
+       <p>You have the option of monthly or yearly billing.</p>
+      </div>
+         <form onSubmit={handleSubmit(submit)}>
         <InputRadio radioImage={Arcade} radioName='selectedPlan' radioId='arcade-radio' radioValue={radioOptionValue1} title='Arcade' subTitle={option01} register={register} changes={isSelected} />
         <InputRadio radioImage={Advanced} radioName='selectedPlan' radioId='advanced-radio' radioValue={radioOptionValue2} title='Advanced' subTitle={option02}  register={register} changes={isSelected}  />
         <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
@@ -57,6 +63,8 @@ const StepForm2 = () => {
          <ToggleButton/>
          <Button />
     </form>
+     </div>
+   </div>
   )
 }
 
