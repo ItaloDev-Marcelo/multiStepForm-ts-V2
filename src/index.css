@@ -1,2 +1,23 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+--color-Blue-950:    #052c53;   /* hsl(213, 96%, 18%) */
+--color-Purple-600:  #483eff;   /* hsl(243, 100%, 62%) */
+--color-Blue-300:    #adbdff;   /* hsl(228, 100%, 84%) */
+--color-Blue-200:    #d6e4ff;   /* hsl(206, 94%, 87%) */
+--color-Red-500:     #ed3548;   /* hsl(354, 84%, 57%) */
+--color-Grey-500:    #9295a0;   /* hsl(231, 11%, 63%) */
+--color-Purple-200:  #d6d9f5;   /* hsl(229, 24%, 87%) */
+--color-Blue-100:    #f0f7ff;   /* hsl(218, 100%, 97%) */
+--color-Blue-50:     #f9fbff;   /* hsl(231, 100%, 99%) */
+--color-White:       #ffffff;   /* hsl(0, 100%, 100%) */
+}
+
+
+body {
+    background:  #adbdff;
+    width:100%;
+    height: 100vh;
+}
+

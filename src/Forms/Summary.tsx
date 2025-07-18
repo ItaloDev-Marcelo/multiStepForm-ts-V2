@@ -4,6 +4,9 @@ import { useSelectSummary } from '../store/useSelectSumarry'
 import { useAddOnsSummary } from '../store/useAddOnsSummary'
 import { useSelectedPlan } from '../store/useTogglePrice'
 
+import Button from '../components/Button'
+
+
 const Summary = () => {
 
   const {addOnsData} = useAddOnsSummary()
@@ -54,7 +57,7 @@ const Summary = () => {
          <p>Total (per {isSelected ? 'month' : 'year'} ) </p>
        <p>+${result}{priceText}</p>
        </div>
-        
+        <Button/>
     </div>
   )
 }

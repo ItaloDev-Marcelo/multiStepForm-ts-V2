@@ -5,6 +5,7 @@ import {step3Form, type FormDataOfStep3} from '../lib/zodSchemaForStep3';
 import { useSelectedPlan } from "../store/useTogglePrice";
 import { useEffect, useState } from "react";
 import { useAddOnsSummary } from "../store/useAddOnsSummary";
+import Button from '../components/Button'
 const StepForm3= () => {
 
    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
@@ -52,7 +53,7 @@ const StepForm3= () => {
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
       <p>{   errors.addOns?.message}</p>
-      <button type='submit'>Next Step</button>
+      <Button />
     </form>
   )
 }

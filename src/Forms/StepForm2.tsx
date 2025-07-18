@@ -7,6 +7,7 @@ import { useSelectedPlan } from "../store/useTogglePrice"
 import { useEffect, useState } from 'react';
 import ToggleButton from '../components/toggleButton';
 import { useSelectSummary } from '../store/useSelectSumarry';
+import Button from '../components/Button'
 
 const StepForm2 = () => {
 
@@ -34,7 +35,7 @@ const StepForm2 = () => {
 
   },[copy, setSelected])
 
-  const handleCheckStep = () => setNextStep(!nextStep)
+  // const handleCheckStep = () => setNextStep(!nextStep)
 
 
   const option01 = isSelected ? '$9' : '$90' ;
@@ -54,7 +55,7 @@ const StepForm2 = () => {
         <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
         <p>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
-        <button type='submit'onClick={handleCheckStep}>Next step</button>
+         <Button />
     </form>
   )
 }
