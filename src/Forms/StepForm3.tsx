@@ -48,13 +48,21 @@ const StepForm3= () => {
      const customizableR = isSelected ? 'Customizable-profile 2' : 'Customizable-profile 20'
 
   return (
-    <form onSubmit={handleSubmit(submitData)}>
+    <div className='card  bg-base-100 w-96 rounded-[15px] shadow-sm'>
+       <div className="card-body">
+        <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Select your plan</h1>
+         <p>You have the option of monthly or yearly billing.</p>
+          <form onSubmit={handleSubmit(submitData)}>
       <InputCheck id='online' register={register} name='addOns' title={online} subTitle={onlineText} price={onlinePrice}  value={onlineR} />
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
       <p>{   errors.addOns?.message}</p>
       <Button />
     </form>
+       </div>
+      
+    </div>
+    
   )
 }
 

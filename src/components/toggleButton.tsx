@@ -6,17 +6,17 @@ const ToggleBtn = () => {
   const {togglePlan, isSelected} = useSelectedPlan();
    console.log(isSelected)
 
-  return <div className='flex'>
-     <p><span>Monthly</span></p>
-    <div>
-       <input type="checkbox" 
-       className="toggle theme-controller col-span-2 col-start-1 row-start-1 border-sky-400
-        bg-amber-300 [--tglbg:var(--color-sky-500)]
-        checked:border-blue-800 checked:bg-blue-300 checked:[--tglbg:var(--color-blue-900)]"
+  return <div className='flex justify-center py-3 bg-[#d6e4ff] rounded-[5px]'>
+     <div><p><span className="font-bold">Monthly</span></p></div>
+    <div className="mx-5">
+       <input type="checkbox"
+        defaultChecked
+        className="toggle custom-toggle border-Blue-950 bg-Blue-950 checked:border-Blue-950
+         checked:bg-Blue-950 checked:text-Blue-950"
        onChange={togglePlan} />
     </div>
      
-     <p><span>Yearly</span></p>
+     <div><p><span  className="font-bold">Yearly</span></p></div>
   </div>
 }
 

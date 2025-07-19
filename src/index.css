@@ -21,3 +21,14 @@ body {
     height: 100vh;
 }
 
+
+.custom-toggle:before {
+  background-color: white !important; /* bolinha branca */
+}
+
+
+.custom  + div {
+     margin-right: 1em;
+}
+
+

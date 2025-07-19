@@ -16,14 +16,18 @@ interface CheckProps {
 
 const InputCheck:FC <CheckProps> = ({id,register,name,title,subTitle,price, value}) => {
   return (
-     <div >
-        <input type='checkbox'  id={id} value={value} {...register(name)} />
-       <label htmlFor={id}> 
-        <div>
-              <p>{title} <br /> {subTitle}</p>
-              <p><a href="#">{price}</a></p>
-       </div>
-       </label>
+     <div className="flex flex-row  outline-grey-500  my-2 p-3 rounded-[5px] custom-line 
+ peer-checked:outline-Purple-600 peer-checked:bg-Blue-50 transition">
+        <input type='checkbox'  defaultChecked className="mx-2 mt-3 checkbox checkbox-primary checkbox-sm peer"  id={id} value={value} {...register(name)} />
+        <label htmlFor={id}> 
+        <div className="flex flex-row items-center justify-between px-4 custom w-[270px] ">
+              <div>
+                <p className="text-Blue-950 font-bold">{title}</p>
+              <p>{subTitle}</p>
+              </div>
+              <p className="absolute right-[3em] text-Blue-950"><a href="#">{price}</a></p>
+        </div>
+        </label>
     </div>
   )
 }

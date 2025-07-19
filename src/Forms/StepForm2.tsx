@@ -20,6 +20,7 @@ const StepForm2 = () => {
 
   const submit = (data:FormDataOfStep2) => {
      setCopy([data.selectedPlan])
+     console.log(nextStep)
   }
 
   useEffect(() => {
@@ -49,11 +50,11 @@ const StepForm2 = () => {
 
 
   return (
-   <div className='card  bg-base-100 w-96 rounded-[15px] shadow-sm'>
+   <div className='card  bg-base-100 w-96 rounded-[15px]shadow-sm'>
      <div className="card-body">
       <div className='flex flex-col'>
-       <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Select your plan</h1>
-       <p>You have the option of monthly or yearly billing.</p>
+       <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Pick add-ons</h1>
+       <p>Add-ons help enhance your gaming experience.</p>
       </div>
          <form onSubmit={handleSubmit(submit)}>
         <InputRadio radioImage={Arcade} radioName='selectedPlan' radioId='arcade-radio' radioValue={radioOptionValue1} title='Arcade' subTitle={option01} register={register} changes={isSelected} />
