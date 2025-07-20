@@ -32,3 +32,11 @@ body {
 }
 
 
+.checkbox-container {
+  border: 1px solid gray;
+}
+
+.checkbox-container:has(input[type='checkbox']:checked ) {
+   background:  #d6d9f5;
+   border-color: #483eff;
+}
