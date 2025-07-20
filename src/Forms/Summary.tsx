@@ -31,33 +31,39 @@ const Summary = () => {
   const plan = isSelected ?  'Monthly' : 'Yearly';
 
   return (
-    <div>
-        <h2>Finishing up</h2>
-        <p>Double-check everything looks OK before confirming.</p>
-        {
+    <div className='card bg-base-100 w-96 rounded-[15px] shadow-sm'>
+      <div className="card-body">
+        <h2 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
+        <p className='text-[1.1em]'>Double-check everything looks OK before confirming.</p>
+         <div className='flex flex-col  bg-Blue-200 rounded-[5px] p-2 my-3'>
+             {
           selected.map((item) => (
-             <div  key={Math.random()}>
-                <p>{item.name} ({plan})  <br/> <a href='#'>Change</a> </p>
-                <p>${item.price} {priceText} </p>
+             <div  key={Math.random()} className='flex flex-row justify-between items-center p-3 '>
+               <div> <p > <span className='text-[1em] font-bold text-Blue-950 '>{item.name}</span>
+                <span className='text-[1em] font-bold text-Blue-950 '>({plan}) </span>  <br/>
+                 <a href='#' className='underline'>Change</a> </p></div>
+              <div><p>${item.price} {priceText} </p></div>
              </div>
           ))
         }
-
+        <hr  />
         {
          addOnsData.length > 0 &&  addOnsData.map((item) => (
-             <div key={Math.random()} className='flex justify-between p-2'>
-                <p>{item.name}</p>
-                <p>+${item.price} {priceText}</p>
+             <div key={Math.random()} className='flex flex-row justify-between items-center p-3'>
+                <div><p>{item.name}</p></div>
+                <div><p>+${item.price} {priceText}</p></div>
              </div>
           ))
         }
+         </div>
 
        
-       <div>
-         <p>Total (per {isSelected ? 'month' : 'year'} ) </p>
-       <p>+${result}{priceText}</p>
+       <div  className='flex flex-row justify-between  p-3 mb-3'>
+         <div><p>Total (per {isSelected ? 'month' : 'year'} ) </p></div>
+         <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
         <Button/>
+      </div>
     </div>
   )
 }
