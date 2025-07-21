@@ -5,6 +5,7 @@ import { useAddOnsSummary } from '../store/useAddOnsSummary'
 import { useSelectedPlan } from '../store/useTogglePrice'
 
 import Button from '../components/Button'
+import Backbtn from '../components/Inputs/BackBtn';
 
 
 const Summary = () => {
@@ -63,6 +64,7 @@ const Summary = () => {
          <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
         <Button/>
+          <Backbtn Url='/step-02/step-03' />
       </div>
     </div>
   )

@@ -6,6 +6,9 @@ import { useSelectedPlan } from "../store/useTogglePrice";
 import { useEffect, useState } from "react";
 import { useAddOnsSummary } from "../store/useAddOnsSummary";
 import Button from '../components/Button'
+
+import Nextbtn from '../components/Inputs/Nextbtn';
+import Backbtn from '../components/Inputs/BackBtn';
 const StepForm3= () => {
 
    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
@@ -13,6 +16,7 @@ const StepForm3= () => {
    const {AddOns} = useAddOnsSummary();
     const [copy, setCopy] = useState<string[]>([]);
     const submitData = (data:FormDataOfStep3) => setCopy(data.addOns)
+  
 
 
   useEffect(() => {
@@ -58,6 +62,8 @@ const StepForm3= () => {
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
       <p>{   errors.addOns?.message}</p>
       <Button />
+         <Nextbtn Url='summary-step' />
+         <Backbtn Url='/step-02' />
     </form>
        </div>
       

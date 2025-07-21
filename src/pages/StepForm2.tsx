@@ -8,19 +8,23 @@ import { useEffect, useState } from 'react';
 import ToggleButton from '../components/toggleButton';
 import { useSelectSummary } from '../store/useSelectSumarry';
 import Button from '../components/Button'
-
+import Nextbtn from '../components/Inputs/Nextbtn';
+import Backbtn from '../components/Inputs/BackBtn';
 const StepForm2 = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep2>({resolver: zodResolver(step2Form)});
   const {Arcade,Advanced,Pro} = Step2FormIcons
   const {isSelected} =  useSelectedPlan();
-  const [nextStep, setNextStep] = useState(false);
   const [copy, setCopy] = useState<string[]>([])
+  const [next, setNext] = useState(false)
   const {setSelected} = useSelectSummary()
 
   const submit = (data:FormDataOfStep2) => {
      setCopy([data.selectedPlan])
-     console.log(nextStep)
+     if(!copy) {
+    setNext(true)
+     }
+
   }
 
   useEffect(() => {
@@ -36,7 +40,6 @@ const StepForm2 = () => {
 
   },[copy, setSelected])
 
-  // const handleCheckStep = () => setNextStep(!nextStep)
 
 
   const option01 = isSelected ? '$9' : '$90' ;
@@ -62,7 +65,11 @@ const StepForm2 = () => {
         <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
         <p>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
-         <Button />
+         <div>
+        { next ? <Button />   :
+         <Nextbtn Url='/step-02/step-03' />}
+         <Backbtn Url='/' />
+         </div>
     </form>
      </div>
    </div>
