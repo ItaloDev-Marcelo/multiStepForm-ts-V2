@@ -15,7 +15,11 @@ const StepForm3= () => {
    const {isSelected} = useSelectedPlan();
    const {AddOns} = useAddOnsSummary();
     const [copy, setCopy] = useState<string[]>([]);
-    const submitData = (data:FormDataOfStep3) => setCopy(data.addOns)
+    const [next, setNext] =  useState(false)
+    const submitData = (data:FormDataOfStep3) => {
+       setCopy(data.addOns)
+       if(data.addOns.length > 0) setNext(true)
+    }
   
 
 
@@ -60,9 +64,9 @@ const StepForm3= () => {
       <InputCheck id='online' register={register} name='addOns' title={online} subTitle={onlineText} price={onlinePrice}  value={onlineR} />
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
-      <p>{   errors.addOns?.message}</p>
-      <Button />
-         <Nextbtn Url='summary-step' />
+      <p>{errors.addOns?.message}</p>
+      {!next ?<Button />:
+         <Nextbtn Url='summary-step' />}
          <Backbtn Url='/step-02' />
     </form>
        </div>

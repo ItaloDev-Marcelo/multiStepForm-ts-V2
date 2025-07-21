@@ -21,7 +21,7 @@ const StepForm2 = () => {
 
   const submit = (data:FormDataOfStep2) => {
      setCopy([data.selectedPlan])
-     if(!copy) {
+     if(data.selectedPlan) {
     setNext(true)
      }
 
@@ -66,7 +66,7 @@ const StepForm2 = () => {
         <p>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
          <div>
-        { next ? <Button />   :
+        { !next ? <Button />   :
          <Nextbtn Url='/step-02/step-03' />}
          <Backbtn Url='/' />
          </div>
