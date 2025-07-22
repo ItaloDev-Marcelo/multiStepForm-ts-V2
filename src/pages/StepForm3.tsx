@@ -5,11 +5,11 @@ import {step3Form, type FormDataOfStep3} from '../lib/zodSchemaForStep3';
 import { useSelectedPlan } from "../store/useTogglePrice";
 import { useEffect, useState } from "react";
 import { useAddOnsSummary } from "../store/useAddOnsSummary";
-import Button from '../components/Button'
+import Button from '../components/communs-components/Button'
 
 import Nextbtn from '../components/Inputs/Nextbtn';
 import Backbtn from '../components/Inputs/BackBtn';
-import Steps from "../components/Steps";
+import Steps from "../components/communs-components/Steps";
 const StepForm3= () => {
 
    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
@@ -67,7 +67,7 @@ const StepForm3= () => {
       <InputCheck id='online' register={register} name='addOns' title={online} subTitle={onlineText} price={onlinePrice}  value={onlineR} />
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
-      <p>{errors.addOns?.message}</p>
+      <p className='label text-Red-500 font-bold'>{errors.addOns?.message}</p>
       <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
          {!next ?<Button />:
          <Nextbtn Url='summary-step' />}

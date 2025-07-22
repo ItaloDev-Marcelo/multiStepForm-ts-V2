@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 @theme {
 --color-Blue-950:    #052c53;   /* hsl(213, 96%, 18%) */
@@ -13,7 +14,6 @@
 --color-Blue-50:     #f9fbff;   /* hsl(231, 100%, 99%) */
 --color-White:       #ffffff;   /* hsl(0, 100%, 100%) */
 --breakpoint-nt:  85rem;
---breakpoint-t: 50rem;
 }
 
 
@@ -21,6 +21,7 @@ body {
     background:  #d6e4ff;
     width:100%;
     height: 100vh;
+    font-family: "Ubuntu", sans-serif;
 }
 
 
@@ -60,31 +61,12 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  height:30vh;
+  height:50vh;
   background: red;
   background: url(./assets/images/bg-sidebar-mobile.svg) no-repeat;
   background-size: cover;
 }
 }
-
-@media (min-width: 800px) and (max-height:480px) {
-  .card {
-    width: 375px;
-    position: relative;
-    top: 25%;
-  }
-
-  #stepBanner {
-     height:45%;
-  }
-
-  #stepBanner ul {
-    margin-top: 1em;
-  }
-
-
-}
-
 
 @media (min-width: 1360px) {
    #stepBanner {

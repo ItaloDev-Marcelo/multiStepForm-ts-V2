@@ -5,12 +5,12 @@ import {step2Form, type FormDataOfStep2} from '../lib/zodSchemaForStep2';
 import {Step2FormIcons} from '../components/ImagensBank'
 import { useSelectedPlan } from "../store/useTogglePrice"
 import { useEffect, useState } from 'react';
-import ToggleButton from '../components/toggleButton';
+import ToggleButton from '../components/communs-components/toggleButton';
 import { useSelectSummary } from '../store/useSelectSumarry';
-import Button from '../components/Button'
+import Button from '../components/communs-components/Button'
 import Nextbtn from '../components/Inputs/Nextbtn';
 import Backbtn from '../components/Inputs/BackBtn';
-import Steps from '../components/Steps';
+import Steps from '../components/communs-components/Steps';
 const StepForm2 = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep2>({resolver: zodResolver(step2Form)});
@@ -27,6 +27,8 @@ const StepForm2 = () => {
      }
 
   }
+
+  console.log(errors.selectedPlan?.message)
 
   useEffect(() => {
    const formateArray = copy.map((item) => {
@@ -67,10 +69,9 @@ const StepForm2 = () => {
             <InputRadio radioImage={Arcade} radioName='selectedPlan' radioId='arcade-radio' radioValue={radioOptionValue1} title='Arcade' subTitle={option01} register={register} changes={isSelected} />
         <InputRadio radioImage={Advanced} radioName='selectedPlan' radioId='advanced-radio' radioValue={radioOptionValue2} title='Advanced' subTitle={option02}  register={register} changes={isSelected}  />
         <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
-      
          </div>
 
-        <p>{errors.selectedPlan?.message}</p>
+        <p className='label text-Red-500 my-2 font-bold'>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
          <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
         { !next ? <Button />   :

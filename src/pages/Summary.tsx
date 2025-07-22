@@ -4,9 +4,9 @@ import { useSelectSummary } from '../store/useSelectSumarry'
 import { useAddOnsSummary } from '../store/useAddOnsSummary'
 import { useSelectedPlan } from '../store/useTogglePrice'
 
-import Button from '../components/Button'
+import Button from '../components/communs-components/Button'
 import Backbtn from '../components/Inputs/BackBtn';
-import Steps from '../components/Steps';
+import Steps from '../components/communs-components/Steps';
 
 
 const Summary = () => {
@@ -33,9 +33,9 @@ const Summary = () => {
   const plan = isSelected ?  'Monthly' : 'Yearly';
 
   return (
-   <main className='flex justify-center items-center h-screen'>
+   <main className='flex justify-center items-center h-screen  nt:h-[550px] nt:rounded-[10px] nt:justify-between nt:px-5'>
     <Steps stepLink={4}/>
-      <div className='card bg-base-100 w-[330px] rounded-[5px]shadow-sm'>
+      <div className='card  bg-base-100 w-[330px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
       <div className="card-body">
         <h2 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
         <p className='text-[1.1em]'>Double-check everything looks OK before confirming.</p>
@@ -66,7 +66,7 @@ const Summary = () => {
          <div><p>Total (per {isSelected ? 'month' : 'year'} ) </p></div>
          <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
-       <div className='flex justify-between fixed w-full bg-white bottom-0 left-0 p-3'>
+       <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
             <Button/>
           <Backbtn Url='/step-02/step-03' />
        </div>

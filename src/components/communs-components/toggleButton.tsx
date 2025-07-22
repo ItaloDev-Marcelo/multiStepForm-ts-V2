@@ -1,4 +1,4 @@
-import { useSelectedPlan } from "../store/useTogglePrice"
+import { useSelectedPlan } from "../../store/useTogglePrice"
 
 
 const ToggleBtn = () => {
