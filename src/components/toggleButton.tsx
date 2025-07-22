@@ -10,7 +10,6 @@ const ToggleBtn = () => {
      <div><p><span className="font-bold">Monthly</span></p></div>
     <div className="mx-5">
        <input type="checkbox"
-        defaultChecked
         className="toggle custom-toggle border-Blue-950 bg-Blue-950 checked:border-Blue-950
          checked:bg-Blue-950 checked:text-Blue-950"
        onChange={togglePlan} />

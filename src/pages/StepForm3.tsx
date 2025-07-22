@@ -9,6 +9,7 @@ import Button from '../components/Button'
 
 import Nextbtn from '../components/Inputs/Nextbtn';
 import Backbtn from '../components/Inputs/BackBtn';
+import Steps from "../components/Steps";
 const StepForm3= () => {
 
    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
@@ -56,8 +57,9 @@ const StepForm3= () => {
      const customizableR = isSelected ? 'Customizable-profile 2' : 'Customizable-profile 20'
 
   return (
-    <main>
-      <div className='card card-3  bg-base-100 w-[340px] rounded-[5px]  shadow-sm'>
+    <main  className='flex justify-center items-center h-screen  nt:h-[550px] nt:rounded-[10px] nt:justify-between nt:px-5'>
+      <Steps stepLink={3}/>
+      <div className='card  bg-base-100 w-[330px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
        <div className="card-body">
         <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Select your plan</h1>
          <p>You have the option of monthly or yearly billing.</p>
@@ -66,7 +68,7 @@ const StepForm3= () => {
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
       <p>{errors.addOns?.message}</p>
-      <div className='flex justify-between fixed w-full bg-white bottom-0 left-0 p-2'>
+      <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
          {!next ?<Button />:
          <Nextbtn Url='summary-step' />}
          <Backbtn Url='/step-02' />

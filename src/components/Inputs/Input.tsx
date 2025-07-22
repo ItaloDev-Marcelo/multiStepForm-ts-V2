@@ -15,7 +15,7 @@ const Input = ({type,label, register, errors, name, placeholder}:InputShape) => 
   return (
     <fieldset className='fieldset'>
         <label className='fieldset-legend text-Blue-950 text-[1.3em]'>{label}</label>
-        <input type={type} placeholder={placeholder} {...register(name)} className="input input-Grey-500" />
+        <input type={type} placeholder={placeholder} {...register(name)} className="input n input-Grey-500" />
         <p className='label text-Red-500'>{errors[name]?.message}</p>
     </fieldset>
   )

@@ -10,6 +10,7 @@ import { useSelectSummary } from '../store/useSelectSumarry';
 import Button from '../components/Button'
 import Nextbtn from '../components/Inputs/Nextbtn';
 import Backbtn from '../components/Inputs/BackBtn';
+import Steps from '../components/Steps';
 const StepForm2 = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep2>({resolver: zodResolver(step2Form)});
@@ -53,20 +54,25 @@ const StepForm2 = () => {
 
 
   return (
-   <main>
-      <div className='card card-2  bg-base-100 w-[330px] rounded-[5px] shadow-sm'>
+   <main className='flex justify-center items-center h-screen  nt:h-[550px] nt:rounded-[10px] nt:justify-between nt:px-5'>
+    <Steps stepLink={2}/>
+      <div className='card  bg-base-100 w-[330px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
      <div className="card-body">
       <div className='flex flex-col'>
        <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Pick add-ons</h1>
        <p>Add-ons help enhance your gaming experience.</p>
       </div>
          <form onSubmit={handleSubmit(submit)}>
-        <InputRadio radioImage={Arcade} radioName='selectedPlan' radioId='arcade-radio' radioValue={radioOptionValue1} title='Arcade' subTitle={option01} register={register} changes={isSelected} />
+         <div className='nt:flex'>
+            <InputRadio radioImage={Arcade} radioName='selectedPlan' radioId='arcade-radio' radioValue={radioOptionValue1} title='Arcade' subTitle={option01} register={register} changes={isSelected} />
         <InputRadio radioImage={Advanced} radioName='selectedPlan' radioId='advanced-radio' radioValue={radioOptionValue2} title='Advanced' subTitle={option02}  register={register} changes={isSelected}  />
         <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
+      
+         </div>
+
         <p>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
-         <div className='flex justify-between fixed w-full bg-white bottom-0 left-0 p-3'>
+         <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
         { !next ? <Button />   :
          <Nextbtn Url='/step-02/step-03' />}
          <Backbtn Url='/' />

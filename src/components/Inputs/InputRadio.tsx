@@ -31,11 +31,11 @@ const InputRadio:FC<RadioProps> = ({radioImage,radioName,radioId,radioValue,titl
 />
 
 {/* container que muda a cor quando input está checked */}
-<div className="flex flex-row my-5 outline-1 outline-Grey-500 p-4 rounded-[5px] custom-line 
- peer-checked:outline-Purple-600 peer-checked:bg-Blue-50 transition">
+<div className="flex flex-row nt:flex-col my-[1.2em] outline-1 outline-Grey-500 p-2 rounded-[5px] custom-line 
+ peer-checked:outline-Purple-600 peer-checked:bg-Blue-50 transition nt:h-[150px] nt:w-[125px] nt:mx-1.5">
 
-  <label htmlFor={radioId} className="custom-radio cursor-pointer">
-    <figure className="px-2 mr-3">
+  <label htmlFor={radioId} className="custom-radio cursor-pointer flex">
+    <figure className="px-2 mr-3 nt:px-0 nt:mr-0 nt:my-2.5">
       <img src={radioImage} alt="" />
     </figure>
   </label>

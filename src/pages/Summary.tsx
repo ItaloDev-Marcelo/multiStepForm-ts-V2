@@ -6,6 +6,7 @@ import { useSelectedPlan } from '../store/useTogglePrice'
 
 import Button from '../components/Button'
 import Backbtn from '../components/Inputs/BackBtn';
+import Steps from '../components/Steps';
 
 
 const Summary = () => {
@@ -32,7 +33,8 @@ const Summary = () => {
   const plan = isSelected ?  'Monthly' : 'Yearly';
 
   return (
-   <main>
+   <main className='flex justify-center items-center h-screen'>
+    <Steps stepLink={4}/>
       <div className='card bg-base-100 w-[330px] rounded-[5px]shadow-sm'>
       <div className="card-body">
         <h2 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
