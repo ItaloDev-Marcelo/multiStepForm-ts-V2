@@ -21,6 +21,20 @@ body {
     height: 100vh;
 }
 
+.card {
+    position: relative;
+    top: 5em;
+    left: 1.5em;
+}
+.card-2 {
+  position: relative;
+  top: 4em;
+}
+
+.card-3 {
+  position: relative;
+  left: 1em;
+}
 
 .custom-toggle:before {
   background-color: white !important; /* bolinha branca */

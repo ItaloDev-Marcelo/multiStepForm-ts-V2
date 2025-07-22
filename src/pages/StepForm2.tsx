@@ -53,7 +53,8 @@ const StepForm2 = () => {
 
 
   return (
-   <div className='card  bg-base-100 w-96 rounded-[15px]shadow-sm'>
+   <main>
+      <div className='card card-2  bg-base-100 w-[330px] rounded-[5px] shadow-sm'>
      <div className="card-body">
       <div className='flex flex-col'>
        <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Pick add-ons</h1>
@@ -65,7 +66,7 @@ const StepForm2 = () => {
         <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
         <p>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
-         <div>
+         <div className='flex justify-between fixed w-full bg-white bottom-0 left-0 p-3'>
         { !next ? <Button />   :
          <Nextbtn Url='/step-02/step-03' />}
          <Backbtn Url='/' />
@@ -73,6 +74,7 @@ const StepForm2 = () => {
     </form>
      </div>
    </div>
+   </main>
   )
 }
 

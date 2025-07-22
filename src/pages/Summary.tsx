@@ -32,7 +32,8 @@ const Summary = () => {
   const plan = isSelected ?  'Monthly' : 'Yearly';
 
   return (
-    <div className='card bg-base-100 w-96 rounded-[15px] shadow-sm'>
+   <main>
+      <div className='card bg-base-100 w-[330px] rounded-[5px]shadow-sm'>
       <div className="card-body">
         <h2 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
         <p className='text-[1.1em]'>Double-check everything looks OK before confirming.</p>
@@ -63,10 +64,14 @@ const Summary = () => {
          <div><p>Total (per {isSelected ? 'month' : 'year'} ) </p></div>
          <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
-        <Button/>
+       <div className='flex justify-between fixed w-full bg-white bottom-0 left-0 p-3'>
+            <Button/>
           <Backbtn Url='/step-02/step-03' />
+       </div>
+    
       </div>
     </div>
+   </main>
   )
 }
 

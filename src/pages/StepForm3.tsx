@@ -56,7 +56,8 @@ const StepForm3= () => {
      const customizableR = isSelected ? 'Customizable-profile 2' : 'Customizable-profile 20'
 
   return (
-    <div className='card  bg-base-100 w-96 rounded-[15px] shadow-sm'>
+    <main>
+      <div className='card card-3  bg-base-100 w-[340px] rounded-[5px]  shadow-sm'>
        <div className="card-body">
         <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Select your plan</h1>
          <p>You have the option of monthly or yearly billing.</p>
@@ -65,13 +66,17 @@ const StepForm3= () => {
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
       <p>{errors.addOns?.message}</p>
-      {!next ?<Button />:
+      <div className='flex justify-between fixed w-full bg-white bottom-0 left-0 p-2'>
+         {!next ?<Button />:
          <Nextbtn Url='summary-step' />}
          <Backbtn Url='/step-02' />
+      </div>
+     
     </form>
        </div>
       
     </div>
+    </main>
     
   )
 }

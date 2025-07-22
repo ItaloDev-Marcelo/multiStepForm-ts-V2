@@ -20,7 +20,8 @@ const StepForm1 = () => {
   
  
   return (
-   <div className='card  bg-base-100 w-96 rounded-[15px] shadow-sm'>
+   <main>
+    <div className='card  bg-base-100 w-[330px] rounded-[5px] shadow-sm '>
        <div className="card-body">
         <div className="flex flex-col ">
            <h1 className="card-title text-[1.7em] text-Blue-950 font-bold mb-3">Personal info</h1>
@@ -30,7 +31,7 @@ const StepForm1 = () => {
        <Input register={register} placeholder='e.g. Stephen King' errors={errors} type='text' label='name' name='userName' />
        <Input register={register} placeholder='e.g. stephenking@lorem.com' errors={errors} type='email' label='email' name='email'  />
        <Input register={register} placeholder='e.g. +1 234 567 890' errors={errors} type='text' label='phone' name='phoneNumber'  />
-       <div className='mt-5'>
+       <div className='mt-5 flex justify-between fixed w-full bg-white bottom-0 left-0 p-3'>
         
        {!next ? <Button/>  : <Nextbtn Url="step-02" />}
           </div>
@@ -39,6 +40,7 @@ const StepForm1 = () => {
        </div>
         
    </div>
+   </main>
   )
 }
 
