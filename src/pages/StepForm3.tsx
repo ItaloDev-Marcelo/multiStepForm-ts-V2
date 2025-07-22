@@ -59,7 +59,7 @@ const StepForm3= () => {
   return (
     <main  className='flex justify-center items-center h-screen  nt:h-[550px] nt:rounded-[10px] nt:justify-between nt:px-5'>
       <Steps stepLink={3}/>
-      <div className='card  bg-base-100 w-[330px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
+      <div className='card my-[7rem] nt:relative nt:top-0  bg-base-100 w-[330px] tabletS:w-[400px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
        <div className="card-body">
         <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Select your plan</h1>
          <p>You have the option of monthly or yearly billing.</p>

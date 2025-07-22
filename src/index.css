@@ -14,14 +14,22 @@
 --color-Blue-50:     #f9fbff;   /* hsl(231, 100%, 99%) */
 --color-White:       #ffffff;   /* hsl(0, 100%, 100%) */
 --breakpoint-nt:  85rem;
+--breakpoint-tableS:  50rem;
 }
 
 
-body {
+ body {
     background:  #d6e4ff;
     width:100%;
     height: 100vh;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Ubuntu", sans-serif; 
+    z-index: 2;
+}
+
+
+ main {
+    background:  #d6e4ff;
+    height: 100%;
 }
 
 
@@ -69,6 +77,14 @@ body {
 }
 
 @media (min-width: 1360px) {
+
+
+
+body  {
+    width:100%;
+    height: 100vh;
+}
+
    #stepBanner {
   display: flex;
   justify-content: center;
@@ -87,7 +103,9 @@ body {
 main {
   background: #fff;
   width:800px;
+  height: 550px;
 }
+
 
 
 input[type='text'], input[type='email'] {

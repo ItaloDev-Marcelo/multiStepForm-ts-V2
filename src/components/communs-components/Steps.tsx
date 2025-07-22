@@ -4,8 +4,8 @@ type Stepformate = {stepLink:number}
 
 const Steps = ({stepLink}:Stepformate) => {
 
-    const active = 'rounded-[50px] bg-Blue-200 text-Blue-950 font-bold item-center text-center py-1 nt:my-4  h-[35px] w-[35px] mx-2  '
-    const normal = 'rounded-[50px] bg-transparent outline-1 outline-white text-white py-1  mx-2  nt:my-4  text-center font-bold items-center h-[35px] w-[35px] '
+    const active = 'rounded-[50px] bg-Blue-200 text-Blue-950 font-bold item-center text-center py-1.5 mx-2.5 nt:my-4   h-[35px] w-[35px]  '
+    const normal = 'rounded-[50px] bg-transparent outline-1 outline-white text-white py-1.5  mx-2.5  nt:my-4  text-center font-bold items-center h-[35px] w-[35px] '
 
   const list = [
     {
