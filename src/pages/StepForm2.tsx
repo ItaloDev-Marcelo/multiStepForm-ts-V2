@@ -11,11 +11,15 @@ import Button from '../components/communs-components/Button'
 import Nextbtn from '../components/Inputs/Nextbtn';
 import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
+import Main from "../components/communs-components/Main";
+import CardWrapper from "../components/communs-components/CardWrapper";
+import UseStep2Data from './hooks/step2Data';
 const StepForm2 = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep2>({resolver: zodResolver(step2Form)});
   const {Arcade,Advanced,Pro} = Step2FormIcons
   const {isSelected} =  useSelectedPlan();
+  const {option01,option02,option03,radioOptionValue1,radioOptionValue2,radioOptionValue3} = UseStep2Data()
   const [copy, setCopy] = useState<string[]>([])
   const [next, setNext] = useState(false)
   const {setSelected} = useSelectSummary()
@@ -28,7 +32,6 @@ const StepForm2 = () => {
 
   }
 
-  console.log(errors.selectedPlan?.message)
 
   useEffect(() => {
    const formateArray = copy.map((item) => {
@@ -43,23 +46,11 @@ const StepForm2 = () => {
 
   },[copy, setSelected])
 
-
-
-  const option01 = isSelected ? '$9' : '$90' ;
-  const option02 = isSelected ? '$12' : '$120' ;
-  const option03 = isSelected ? '$15' : '$150' ;
-  const radioOptionValue1 = isSelected ? 'Arcane 9' : 'Arcene 90';
-  const radioOptionValue2 = isSelected ? 'Advanced 12' : 'Advanced 120';
-  const radioOptionValue3 = isSelected ? 'Pro 15' : 'Pro 150';
-
-
-
-
+  
   return (
-   <main className='flex justify-center items-center h-screen nt:h-[550px] nt:rounded-[10px] nt:justify-between nt:px-5'>
+   <Main >
     <Steps stepLink={2}/>
-      <div className='card my-[7rem] nt:relative nt:top-0  bg-base-100 w-[330px] tabletS:w-[400px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
-     <div className="card-body">
+      <CardWrapper>
       <div className='flex flex-col'>
        <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Pick add-ons</h1>
        <p>Add-ons help enhance your gaming experience.</p>
@@ -67,8 +58,8 @@ const StepForm2 = () => {
          <form onSubmit={handleSubmit(submit)}>
          <div className='nt:flex'>
             <InputRadio radioImage={Arcade} radioName='selectedPlan' radioId='arcade-radio' radioValue={radioOptionValue1} title='Arcade' subTitle={option01} register={register} changes={isSelected} />
-        <InputRadio radioImage={Advanced} radioName='selectedPlan' radioId='advanced-radio' radioValue={radioOptionValue2} title='Advanced' subTitle={option02}  register={register} changes={isSelected}  />
-        <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
+            <InputRadio radioImage={Advanced} radioName='selectedPlan' radioId='advanced-radio' radioValue={radioOptionValue2} title='Advanced' subTitle={option02}  register={register} changes={isSelected}  />
+            <InputRadio radioImage={Pro} radioName='selectedPlan' radioId='pro-radio' radioValue={radioOptionValue3} title='Pro' subTitle={option03}  register={register} changes={isSelected}  />
          </div>
 
         <p className='label text-Red-500 my-2 font-bold'>{errors.selectedPlan?.message}</p>
@@ -78,10 +69,9 @@ const StepForm2 = () => {
          <Nextbtn Url='/step-02/step-03' />}
          <Backbtn Url='/' />
          </div>
-    </form>
-     </div>
-   </div>
-   </main>
+         </form>
+      </CardWrapper>
+   </Main>
   )
 }
 

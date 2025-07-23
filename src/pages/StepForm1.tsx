@@ -6,13 +6,14 @@ import Button from '../components/communs-components/Button'
 import Nextbtn from "../components/Inputs/Nextbtn";
 import { useState } from "react";
 import Steps from "../components/communs-components/Steps";
+import Main from "../components/communs-components/Main";
+import CardWrapper from "../components/communs-components/CardWrapper";
 
 const StepForm1 = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep1>({resolver: zodResolver(step1Form)});
   const [next, setNext] = useState(false)
   const submitData = (data:FormDataOfStep1) => {
-    console.log(data)
     if(data) {
       setNext(true)
     }
@@ -21,11 +22,9 @@ const StepForm1 = () => {
   
  
   return (
-   <main className="flex justify-center items-center
-    h-screen nt:rounded-[10px] nt:justify-between nt:px-5 ">
-    <Steps stepLink={1} />
-    <div className='card my-[7rem] nt:relative nt:top-0  bg-base-100 w-[330px] tabletS:w-[400px] rounded-[5px] shadow-sm nt:bg-transparent nt:shadow-none nt:w-[500px]'>
-       <div className="card-body">
+   <Main>
+     <Steps stepLink={1} />
+    <CardWrapper>
         <div className="flex flex-col ">
            <h1 className="card-title text-[1.7em] text-Blue-950 font-bold mb-3">Personal info</h1>
            <p>Please provide your name, email <br className="nt:hidden" /> address, and phone number.</p>
@@ -35,15 +34,11 @@ const StepForm1 = () => {
        <Input register={register} placeholder='e.g. stephenking@lorem.com' errors={errors} type='email' label='Email Address ' name='email'  />
        <Input register={register} placeholder='e.g. +1 234 567 890' errors={errors} type='text' label='Phone Number' name='phoneNumber'  />
        <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-        
        {!next ? <Button/>  : <Nextbtn Url="step-02" />}
           </div>
-       
        </form>
-       </div>
-        
-   </div>
-   </main>
+    </CardWrapper>
+   </Main>
   )
 }
 
