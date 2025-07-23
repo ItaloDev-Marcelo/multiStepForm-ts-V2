@@ -12,7 +12,8 @@ export const step1Form = z.object({
     .regex(simplesRegex, 'email must have @gmail.com ou @hotmail.com')
     .nonempty('this filed is required'),
     phoneNumber: z.string()
-    .min(9)
+    .min(11)
+    .max(11)
     .regex(simplePhoneRegex, 'only numbers')
     .nonempty('this filed is required')
 })

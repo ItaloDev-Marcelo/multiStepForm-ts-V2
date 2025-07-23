@@ -1,11 +1,7 @@
-import RouteLayout from "./layout"
+import RouteLayout from './layout'
 
 function App() {
-   return (
-      <>
-       <RouteLayout/>
-      </>
-   )
+   return <RouteLayout/>
 }
 
 export default App

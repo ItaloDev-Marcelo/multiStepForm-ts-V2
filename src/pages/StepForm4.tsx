@@ -1,11 +1,11 @@
 import Button from '../components/communs-components/Button'
 import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
-import Main from "../components/communs-components/Main";
-import CardWrapper from "../components/communs-components/CardWrapper";
+import Main from '../components/communs-components/Main';
+import CardWrapper from '../components/communs-components/CardWrapper';
 import UseStep4Data from './hooks/step4Data';
-const Summary = () => {
 
+const Summary = () => {
   const  {result,priceText,plan,selected,addOnsData,isSelected} =UseStep4Data()
 
   return (
@@ -13,11 +13,11 @@ const Summary = () => {
     <Steps stepLink={4}/>
       <CardWrapper>
           <div className='flex flex-col'>
-        <h2 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
-        <p className='text-[1.1em]'>Double-check everything looks OK before confirming.</p>
+        <h2 className='card-title text-[1.5em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
+        <p className='text-[.9em] font-medium text-gray-500'>Double-check everything looks OK before confirming.</p>
       </div>
       <div className='flex flex-col  bg-Blue-200 rounded-[5px] p-2 my-3'>
-             {
+        {
           selected.map((item) => (
              <div  key={Math.random()} className='flex flex-row justify-between items-center p-3 '>
                <div> <p > <span className='text-[1em] font-bold text-Blue-950 '>{item.name}</span>
@@ -41,9 +41,9 @@ const Summary = () => {
          <div><p>Total (per {isSelected ? 'month' : 'year'} ) </p></div>
          <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
-       <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-            <Button/>
+       <div className='mt-5 move-left flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
           <Backbtn Url='/step-02/step-03' />
+            <Button/>
        </div>
       </CardWrapper>
    </Main>

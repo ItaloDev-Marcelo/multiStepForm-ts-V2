@@ -1,6 +1,6 @@
 import { useSelectedPlan } from '../../store/useTogglePrice';
-import { useSelectSummary } from '../../store/useSelectSumarry'
-import { useAddOnsSummary } from '../../store/useAddOnsSummary'
+import { useSelectSummary } from '../../store/hooks/plans/useSelectSumarry'
+import { useAddOnsSummary } from '../../store/hooks/plans/useAddOnsSummary'
 
 
 const UseStep4Data = () => {

@@ -1,5 +1,5 @@
-import type { FieldErrors, UseFormRegister } from "react-hook-form"
-import type { FormDataOfStep1 } from "../../lib/zodSchemaForStep1"
+import type { FieldErrors, UseFormRegister } from 'react-hook-form'
+import type { FormDataOfStep1 } from '../../lib/zodSchemaForStep1'
 
 
 export interface InputShape {

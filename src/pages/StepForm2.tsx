@@ -1,19 +1,20 @@
-import InputRadio from '../components/Inputs/InputRadio'
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {step2Form, type FormDataOfStep2} from '../lib/zodSchemaForStep2';
 import {Step2FormIcons} from '../components/ImagensBank'
-import { useSelectedPlan } from "../store/useTogglePrice"
-import { useEffect, useState } from 'react';
+import { useSelectedPlan } from '../store/useTogglePrice'
+import { useSelectSummary } from '../store/hooks/plans/useSelectSumarry';
+import InputRadio from '../components/Inputs/InputRadio'
 import ToggleButton from '../components/communs-components/toggleButton';
-import { useSelectSummary } from '../store/useSelectSumarry';
 import Button from '../components/communs-components/Button'
 import Nextbtn from '../components/Inputs/Nextbtn';
 import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
-import Main from "../components/communs-components/Main";
-import CardWrapper from "../components/communs-components/CardWrapper";
+import Main from '../components/communs-components/Main';
+import CardWrapper from '../components/communs-components/CardWrapper';
 import UseStep2Data from './hooks/step2Data';
+
 const StepForm2 = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep2>({resolver: zodResolver(step2Form)});
@@ -52,8 +53,8 @@ const StepForm2 = () => {
     <Steps stepLink={2}/>
       <CardWrapper>
       <div className='flex flex-col'>
-       <h1 className='card-title text-[1.7em] text-Blue-950 font-bold mb-3'>Pick add-ons</h1>
-       <p>Add-ons help enhance your gaming experience.</p>
+       <h1 className='card-title text-[1.5em] text-Blue-950 font-bold mb-3'>Pick add-ons</h1>
+       <p className='text-[.9em] font-medium text-gray-500'>Add-ons help enhance your gaming experience.</p>
       </div>
          <form onSubmit={handleSubmit(submit)}>
          <div className='nt:flex'>
@@ -64,9 +65,9 @@ const StepForm2 = () => {
 
         <p className='label text-Red-500 my-2 font-bold'>{errors.selectedPlan?.message}</p>
          <ToggleButton/>
-         <div className='mt-5 flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-        { !next ? <Button />   :
-         <Nextbtn Url='/step-02/step-03' />}
+         <div className='mt-5 move-left flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
+        { next ? 
+         <Nextbtn Url='/step-02/step-03' /> : <Button /> }
          <Backbtn Url='/' />
          </div>
          </form>

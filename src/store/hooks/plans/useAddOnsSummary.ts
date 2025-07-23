@@ -1,5 +1,5 @@
 import {create} from 'zustand'
-import type { AddOnsFormate } from '../types/store-types/useAddOnsState'
+import type { AddOnsFormate } from '../../../types/store-types/useAddOnsState'
 
 export const useAddOnsSummary = create<AddOnsFormate>((set) => ({
     addOnsData: [],

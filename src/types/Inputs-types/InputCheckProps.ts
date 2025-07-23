@@ -1,5 +1,5 @@
-import type { UseFormRegister } from "react-hook-form"
-import type { FormDataOfStep3 } from "../../lib/zodSchemaForStep3"
+import type { UseFormRegister } from 'react-hook-form'
+import type { FormDataOfStep3 } from '../../lib/zodSchemaForStep3'
 
 
 export interface CheckProps {
