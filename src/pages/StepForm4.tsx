@@ -1,4 +1,3 @@
-import Button from '../components/communs-components/Button'
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
@@ -9,7 +8,7 @@ import Thanks from './Thanks';
 
 const Summary = () => {
   const  {result,priceText,plan,selected,addOnsData,isSelected} =UseStep4Data()
-  const [isActive, setIsActive] = useState(false)
+  const  [isActive, setIsActive] = useState(false)
 
   return (
    <Main>
