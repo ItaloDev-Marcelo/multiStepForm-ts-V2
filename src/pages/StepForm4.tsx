@@ -1,16 +1,21 @@
 import Button from '../components/communs-components/Button'
-import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
 import UseStep4Data from './hooks/step4Data';
+import Backbtn from '../components/Inputs/BackBtn';
+import { useState } from 'react';
+import Thanks from './Thanks';
 
 const Summary = () => {
   const  {result,priceText,plan,selected,addOnsData,isSelected} =UseStep4Data()
+  const [isActive, setIsActive] = useState(false)
 
   return (
    <Main>
     <Steps stepLink={4}/>
+     {
+      !isActive ?  <>
       <CardWrapper>
           <div className='flex flex-col'>
         <h2 className='card-title text-[1.5em] text-Blue-950 font-bold mb-3'>Finishing up</h2>
@@ -42,10 +47,14 @@ const Summary = () => {
          <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
        <div className='mt-5 move-left flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-          <Backbtn Url='/step-02/step-03' />
-            <Button/>
+          <Backbtn Url='/step2/step3/step4' />
+          <button onClick={() => setIsActive(true)} className='btn mt-3 bg-Blue-950 text-White font-bold hover:bg-Purple-600'>Next Step</button>
+          
        </div>
       </CardWrapper>
+    </> :
+    <Thanks/>
+     }
    </Main>
   )
 }
