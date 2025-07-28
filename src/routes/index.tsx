@@ -12,7 +12,7 @@ const RouteLayout = () => {
          <Route  path='/' index element={<StepForm1/>}   />
          <Route path='/step-02' element={<StepForm2/>}  />
          <Route path='/step-02/step-03' element={<StepForm3/>} />
-         <Route path='/step-02/step-03/summary-step' element={<Summary/>}  />
+         <Route path='/step-02/step-03/step-04' element={<Summary/>}  />
     </Routes>
   )
 }

@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import {type FormDataOfStep3} from '../lib/schemas/zodSchemaForStep3';
 import { useAddOnsSummary } from '../store/hooks/plans//useAddOnsSummary';
-import InputCheck from '../components/Inputs/InputCheck'
-import Button from '../components/communs-components/Button'
+import { useStep3 } from './hooks/useStep3';
 import { useNavigate } from 'react-router';
+import InputCheck from '../components/Inputs/InputCheck';
 import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
-import UseStep3Data from './hooks/step3Data';
-import { useStep3 } from './lib/useStep3';
+import UseStep3Data from './utils/step3Data';
 
 const StepForm3= () => {
 
@@ -22,7 +21,6 @@ const StepForm3= () => {
     const submitData = (data:FormDataOfStep3) => {
        setCopy(data.addOns)
        setForm(data)
-       navigate('summary-step')
     }
   
 
@@ -54,7 +52,8 @@ const StepForm3= () => {
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
       <div className='mt-5 move-left flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-         <Button/>
+         <button type='submit' onClick={() => navigate('step-04')} className='btn mt-3 bg-Blue-950 text-White font-bold hover:bg-Purple-600'>Next Step</button>
+          
          <Backbtn Url='/step-02' />
       </div>
          </form>

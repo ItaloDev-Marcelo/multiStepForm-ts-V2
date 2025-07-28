@@ -63,6 +63,17 @@
    border-color: #483eff;
 }
 
+.container-radio:has(input[type='radio']) {
+  cursor: pointer;
+}
+
+
+.container-radio:has(input[type='radio']:checked ) {
+   background:  #d6d9f5;
+   border-color: #483eff;
+}
+
+
 
 @media (min-width: 480px) {
    #stepBanner {

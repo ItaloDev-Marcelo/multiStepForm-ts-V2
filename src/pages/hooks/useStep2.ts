@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { step2Form } from "../../lib/schemas/zodSchemaForStep2";
-import { StoreUseForm } from "../../store/currentFormstatus";  
+import { StoreUseForm } from "../../store/global/currentFormstatus";  
 
 export const useStep2 = () => {
 

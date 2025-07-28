@@ -3,6 +3,8 @@ import { type FormDataOfStep2} from '../lib/schemas/zodSchemaForStep2';
 import {Step2FormIcons} from '../components/ImagensBank'
 import { useSelectedPlan } from '../store/useTogglePrice'
 import { useSelectSummary } from '../store/hooks/plans/useSelectSumarry';
+import { useNavigate } from 'react-router';
+import { useStep2 } from './hooks/useStep2';
 import InputRadio from '../components/Inputs/InputRadio'
 import ToggleButton from '../components/communs-components/toggleButton';
 import Button from '../components/communs-components/Button'
@@ -10,26 +12,23 @@ import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
-import UseStep2Data from './hooks/step2Data';
-import { useNavigate } from 'react-router';
-import { useStep2 } from './lib/useStep2';
+import UseStep2Data from './utils/step2Data';
+
 const StepForm2 = () => {
 
   const {Arcade,Advanced,Pro} = Step2FormIcons
   const {isSelected} =  useSelectedPlan();
-  const {option01,option02,option03,radioOptionValue1,radioOptionValue2,radioOptionValue3} = UseStep2Data()
-  const [copy, setCopy] = useState<string[]>([])
-    const navigate = useNavigate()
-    const {register, handleSubmit, errors, setForm} = useStep2()
-    
-  const {setSelected} = useSelectSummary()
+  const {option01,option02,option03,radioOptionValue1,radioOptionValue2,radioOptionValue3} = UseStep2Data();
+  const [copy, setCopy] = useState<string[]>([]);
+  const navigate = useNavigate();
+  const {register, handleSubmit, errors, setForm} = useStep2();
+  const {setSelected} = useSelectSummary();
 
   const submit = (data:FormDataOfStep2) => {
-     setCopy([data.selectedPlan])
+    setCopy([data.selectedPlan])
     setForm(data)
     console.log(data)
      if(data.selectedPlan) navigate('/step-02/step-03')  
-
   }
 
 

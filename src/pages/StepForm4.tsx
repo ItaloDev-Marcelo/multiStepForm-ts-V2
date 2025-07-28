@@ -1,11 +1,12 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
-import UseStep4Data from './hooks/step4Data';
+import UseStep4Data from './utils/step4Data';
 import Backbtn from '../components/Inputs/BackBtn';
-import { useState } from 'react';
 import Thanks from './Thanks';
-import { useNavigate } from 'react-router';
+
 const Summary = () => {
   const  {result,priceText,plan,selected,addOnsData,isSelected} = UseStep4Data()
   const  [isActive, setIsActive] = useState(false)

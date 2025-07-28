@@ -5,7 +5,7 @@ import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
 import { useNavigate } from 'react-router';
-import { useStep } from './lib/useStep1';
+import { useStep } from './hooks/useStep1';
 
 const StepForm1 = () => {
 
