@@ -1,10 +1,11 @@
 import { create} from "zustand";
 
-
 interface FormFormate {
      userName: string,
      email: string,
-     phoneNumber: string
+     phoneNumber: string,
+     selectedPlan: string,
+     addOns: string[]
 }
 
 interface FormStore {
@@ -13,11 +14,15 @@ interface FormStore {
      resetForm: () => void
 }
 
+// trocar do useContext pelo zustand ainda estudando o funcionamento
+
 export const StoreUseForm = create<FormStore>((set) => ({
      data: {
           userName: '',
           email: '',
           phoneNumber:'',
+          selectedPlan: '',
+          addOns: []
      },
      setForm: (newData) => 
           set((state) => ({
@@ -29,6 +34,8 @@ export const StoreUseForm = create<FormStore>((set) => ({
                 userName: '',
                 email: '',
                 phoneNumber:'',
+                 selectedPlan:'',
+                 addOns: []
               }
           }))
 }))

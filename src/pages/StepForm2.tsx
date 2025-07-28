@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import {step2Form, type FormDataOfStep2} from '../lib/schemas/zodSchemaForStep2';
+import { type FormDataOfStep2} from '../lib/schemas/zodSchemaForStep2';
 import {Step2FormIcons} from '../components/ImagensBank'
 import { useSelectedPlan } from '../store/useTogglePrice'
 import { useSelectSummary } from '../store/hooks/plans/useSelectSumarry';
@@ -14,18 +12,22 @@ import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
 import UseStep2Data from './hooks/step2Data';
 import { useNavigate } from 'react-router';
+import { useStep2 } from './lib/useStep2';
 const StepForm2 = () => {
 
-  const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep2>({resolver: zodResolver(step2Form)});
   const {Arcade,Advanced,Pro} = Step2FormIcons
   const {isSelected} =  useSelectedPlan();
   const {option01,option02,option03,radioOptionValue1,radioOptionValue2,radioOptionValue3} = UseStep2Data()
   const [copy, setCopy] = useState<string[]>([])
     const navigate = useNavigate()
+    const {register, handleSubmit, errors, setForm} = useStep2()
+    
   const {setSelected} = useSelectSummary()
 
   const submit = (data:FormDataOfStep2) => {
      setCopy([data.selectedPlan])
+    setForm(data)
+    console.log(data)
      if(data.selectedPlan) navigate('/step-02/step-03')  
 
   }

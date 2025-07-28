@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import {step3Form, type FormDataOfStep3} from '../lib/schemas/zodSchemaForStep3';
+import {type FormDataOfStep3} from '../lib/schemas/zodSchemaForStep3';
 import { useAddOnsSummary } from '../store/hooks/plans//useAddOnsSummary';
 import InputCheck from '../components/Inputs/InputCheck'
 import Button from '../components/communs-components/Button'
@@ -11,15 +9,19 @@ import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
 import UseStep3Data from './hooks/step3Data';
+import { useStep3 } from './lib/useStep3';
+
 const StepForm3= () => {
 
-    const {register, handleSubmit} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
+
     const {AddOns} = useAddOnsSummary();
     const [copy, setCopy] = useState<string[]>([]);
     const navigate = useNavigate()
+    const {register, handleSubmit, setForm} = useStep3()
     const {online, onlineText, onlinePrice, onlineR, larger, largerText,largePrice,largeR,customizable,customizableText,customizablePrice,customizableR} = UseStep3Data()
     const submitData = (data:FormDataOfStep3) => {
        setCopy(data.addOns)
+       setForm(data)
        navigate('summary-step')
     }
   
