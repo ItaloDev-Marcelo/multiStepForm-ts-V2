@@ -4,7 +4,7 @@ export const step3Form = z.object({
     addOns: z
     .array(z.string(), {
         invalid_type_error: 'this fiel is required'
-    }).nonempty('this field is required')
+    })
 })
 
 

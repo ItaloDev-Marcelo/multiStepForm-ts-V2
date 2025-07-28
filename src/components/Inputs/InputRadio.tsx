@@ -7,13 +7,13 @@ const InputRadio:FC<RadioProps> = ({radioImage,radioName,radioId,radioValue,titl
 
   return (
     <div>
-<input
+   <input
   type='radio'
   id={radioId}
   value={radioValue}
   {...register(radioName)}
   className='hidden peer'
-/>
+  />
 
 <div className='flex flex-row nt:flex-col my-[1.2em] outline-1 outline-Grey-500 p-2 nt:p-3 rounded-[5px] custom-line 
  peer-checked:outline-Purple-600 peer-checked:bg-Blue-50 transition nt:h-[150px] nt:w-[125px] nt:mx-1.5'>

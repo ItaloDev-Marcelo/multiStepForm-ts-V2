@@ -1,6 +1,6 @@
 import {z} from 'zod';
 const simplesRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const simplePhoneRegex = /^\d{11}$/;
+const simplePhoneRegex = /^\d+/;
 
 export const step1Form = z.object({
     userName: z
@@ -12,9 +12,7 @@ export const step1Form = z.object({
     .regex(simplesRegex, 'email must have @gmail.com ou @hotmail.com')
     .nonempty('this filed is required'),
     phoneNumber: z.string()
-    .min(11)
-    .max(11)
-    .regex(simplePhoneRegex, 'only numbers')
+    .regex(simplePhoneRegex)
     .nonempty('this filed is required')
 })
 

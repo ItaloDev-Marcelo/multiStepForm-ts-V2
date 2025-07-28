@@ -1,5 +1,5 @@
 import type { UseFormRegister } from 'react-hook-form'
-import type { FormDataOfStep2 } from '../../lib/zodSchemaForStep2'
+import type { FormDataOfStep2 } from '../../lib/schemas/zodSchemaForStep2'
 
 
 export interface RadioProps {

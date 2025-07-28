@@ -5,10 +5,11 @@ import UseStep4Data from './hooks/step4Data';
 import Backbtn from '../components/Inputs/BackBtn';
 import { useState } from 'react';
 import Thanks from './Thanks';
-
+import { useNavigate } from 'react-router';
 const Summary = () => {
-  const  {result,priceText,plan,selected,addOnsData,isSelected} =UseStep4Data()
+  const  {result,priceText,plan,selected,addOnsData,isSelected} = UseStep4Data()
   const  [isActive, setIsActive] = useState(false)
+  const navigate = useNavigate()
 
   return (
    <Main>
@@ -22,11 +23,11 @@ const Summary = () => {
       </div>
       <div className='flex flex-col  bg-Blue-200 rounded-[5px] p-2 my-3'>
         {
-          selected.map((item) => (
+        selected.length > 0 &&  selected.map((item) => (
              <div  key={Math.random()} className='flex flex-row justify-between items-center p-3 '>
                <div> <p > <span className='text-[1em] font-bold text-Blue-950 '>{item.name}</span>
                 <span className='text-[1em] font-bold text-Blue-950 '>({plan}) </span>  <br/>
-                 <a href='#' className='underline'>Change</a> </p></div>
+                 <a href='#' className='underline' onClick={() => navigate('/step-02')} >Change</a> </p></div>
               <div><p>${item.price} {priceText} </p></div>
              </div>
           ))
@@ -46,7 +47,7 @@ const Summary = () => {
          <div> <p className='text-Purple-600 font-bold'>+${result}{priceText}</p></div>
        </div>
        <div className='mt-5 move-left flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-          <Backbtn Url='/step2/step3/step4' />
+          <Backbtn Url='/step-02/step-03' />
           <button onClick={() => setIsActive(true)} className='btn mt-3 bg-Blue-950 text-White font-bold hover:bg-Purple-600'>Next Step</button>
           
        </div>

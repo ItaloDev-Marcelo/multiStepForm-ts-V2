@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {step3Form, type FormDataOfStep3} from '../lib/zodSchemaForStep3';
+import {step3Form, type FormDataOfStep3} from '../lib/schemas/zodSchemaForStep3';
 import { useAddOnsSummary } from '../store/hooks/plans//useAddOnsSummary';
 import InputCheck from '../components/Inputs/InputCheck'
 import Button from '../components/communs-components/Button'
-import Nextbtn from '../components/Inputs/Nextbtn';
+import { useNavigate } from 'react-router';
 import Backbtn from '../components/Inputs/BackBtn';
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
@@ -13,14 +13,14 @@ import CardWrapper from '../components/communs-components/CardWrapper';
 import UseStep3Data from './hooks/step3Data';
 const StepForm3= () => {
 
-    const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
+    const {register, handleSubmit} = useForm<FormDataOfStep3>({resolver: zodResolver(step3Form)});
     const {AddOns} = useAddOnsSummary();
     const [copy, setCopy] = useState<string[]>([]);
-    const [next, setNext] =  useState(false)
+    const navigate = useNavigate()
     const {online, onlineText, onlinePrice, onlineR, larger, largerText,largePrice,largeR,customizable,customizableText,customizablePrice,customizableR} = UseStep3Data()
     const submitData = (data:FormDataOfStep3) => {
        setCopy(data.addOns)
-       if(data.addOns.length > 0) setNext(true)
+       navigate('summary-step')
     }
   
 
@@ -51,10 +51,8 @@ const StepForm3= () => {
       <InputCheck id='online' register={register} name='addOns' title={online} subTitle={onlineText} price={onlinePrice}  value={onlineR} />
       <InputCheck id='large' register={register} name='addOns' title={larger} subTitle={largerText} price={largePrice}  value={largeR} />
       <InputCheck id='customizable' register={register} name='addOns' title={customizable} subTitle={customizableText} price={customizablePrice}  value={customizableR } />
-      <p className='label text-Red-500 font-bold'>{errors.addOns?.message}</p>
       <div className='mt-5 move-left flex justify-between fixed nt:relative w-full bg-white nt:bg-transparent bottom-0 left-0 p-3'>
-         {next ?
-         <Nextbtn Url='summary-step' /> : <Button />}
+         <Button/>
          <Backbtn Url='/step-02' />
       </div>
          </form>
