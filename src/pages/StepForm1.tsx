@@ -1,20 +1,21 @@
-
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import {step1Form, type FormDataOfStep1} from '../lib/schemas/zodSchemaForStep1';
+import { type FormDataOfStep1} from '../lib/schemas/zodSchemaForStep1';
 import Input from '../components/Inputs/Input';
 import Button from '../components/communs-components/Button'
-
 import Steps from '../components/communs-components/Steps';
 import Main from '../components/communs-components/Main';
 import CardWrapper from '../components/communs-components/CardWrapper';
 import { useNavigate } from 'react-router';
+import { useStep } from './lib/useStep1';
+
 const StepForm1 = () => {
 
-  const {register, handleSubmit, formState: {errors}} = useForm<FormDataOfStep1>({resolver: zodResolver(step1Form)});
-    const navigate = useNavigate()
-  const submitData = (data:FormDataOfStep1) => {
+
+const {register, handleSubmit, errors, setForm} = useStep()
+const navigate = useNavigate()
+const submitData = (data:FormDataOfStep1) => {
+    setForm(data)
     if(data) navigate('step-02')
+    
   }
 
   return (

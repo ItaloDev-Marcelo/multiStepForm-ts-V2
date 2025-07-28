@@ -1,15 +1,34 @@
 import { create} from "zustand";
-import {type currentFormStatus } from "../types/store-types/currentFormStatus";
 
-export const currentFormSt = create<currentFormStatus>((set) => ({
-     userName: '',
-     email: '',
-     phoneNumber: '',
-     selectedPlan: '',
-     addOns: '',
-     setUserName: (data:string) => set({userName: data }),
-     setEmail: (data:string) => set({email: data }),
-     setPhone: (data:string) => set({phoneNumber: data }),
-     setSelect: (data:string) => set({selectedPlan: data }),
-     setAddOns: (data:string) => set({addOns: data })
+
+interface FormFormate {
+     userName: string,
+     email: string,
+     phoneNumber: string
+}
+
+interface FormStore {
+     data: FormFormate,
+     setForm: (newData: Partial<FormFormate>) => void,
+     resetForm: () => void
+}
+
+export const StoreUseForm = create<FormStore>((set) => ({
+     data: {
+          userName: '',
+          email: '',
+          phoneNumber:'',
+     },
+     setForm: (newData) => 
+          set((state) => ({
+               data: {...state.data, ...newData}
+     })),
+     resetForm : () => 
+          set(() => ({
+             data: {
+                userName: '',
+                email: '',
+                phoneNumber:'',
+              }
+          }))
 }))
